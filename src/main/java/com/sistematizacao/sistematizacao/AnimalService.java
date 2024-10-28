@@ -19,13 +19,19 @@ public class AnimalService {
         return animalRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Animal não encontrado"));
     }
 
-    public Animal salvarAnimal(Animal animal) {
+    public Animal salvarAnimal(AnimalDTO animalDTO) {
+        Animal animal = new Animal();
+        atualizarDadosAnimal(animal, animalDTO);
         return animalRepository.save(animal);
     }
 
-    public Animal atualizarAnimal(Long id, Animal dadosAtualizados) {
+    public Animal atualizarAnimal(Long id, AnimalDTO dadosAtualizados) {
         Animal animal = buscarAnimalPorId(id);
+        atualizarDadosAnimal(animal, dadosAtualizados);
+        return animalRepository.save(animal);
+    }
 
+    private void atualizarDadosAnimal(Animal animal, AnimalDTO dadosAtualizados) {
         animal.setNome(dadosAtualizados.getNome());
         animal.setTipo(dadosAtualizados.getTipo());
         animal.setIdade(dadosAtualizados.getIdade());
@@ -33,12 +39,9 @@ public class AnimalService {
         animal.setStatusAdocao(dadosAtualizados.getStatusAdocao());
         animal.setDescricao(dadosAtualizados.getDescricao());
         animal.setImagemUrl(dadosAtualizados.getImagemUrl());
-
-        return animalRepository.save(animal);
     }
 
     public void deletarAnimal(Long id) {
         animalRepository.deleteById(id);
     }
 }
-

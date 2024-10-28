@@ -12,7 +12,7 @@ import java.util.List;
 public class AnimalController {
     @Autowired
     private AnimalService animalService;
-
+    
     @GetMapping
     public List<Animal> listarAnimais() {
         return animalService.listarAnimais();
@@ -24,12 +24,12 @@ public class AnimalController {
     }
 
     @PostMapping
-    public Animal cadastrarAnimal(@Validated @RequestBody Animal animal) {
-        return animalService.salvarAnimal(animal);
+    public Animal cadastrarAnimal(@Validated @RequestBody AnimalDTO animalDTO) {
+        return animalService.salvarAnimal(animalDTO);
     }
 
     @PutMapping("/{id}")
-    public Animal atualizarAnimal(@PathVariable Long id, @Validated @RequestBody Animal dadosAtualizados) {
+    public Animal atualizarAnimal(@PathVariable Long id, @Validated @RequestBody AnimalDTO dadosAtualizados) {
         return animalService.atualizarAnimal(id, dadosAtualizados);
     }
 
@@ -39,3 +39,4 @@ public class AnimalController {
         return ResponseEntity.noContent().build();
     }
 }
+

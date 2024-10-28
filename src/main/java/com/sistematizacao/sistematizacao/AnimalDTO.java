@@ -1,43 +1,27 @@
 package com.sistematizacao.sistematizacao;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
-@Entity
-public class Animal {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class AnimalDTO {
 
     @NotBlank(message = "O nome não pode estar vazio.")
-    private String nome; 
+    private String nome;
 
     @NotBlank(message = "O tipo do animal é obrigatório.")
     private String tipo;
-    
+
     @Min(value = 0, message = "A idade deve ser um valor positivo.")
     private int idade;
+
     private String raca;
 
     @Pattern(regexp = "Disponível|Em processo de adoção|Adotado", message = "Status de adoção inválido")
     private String statusAdocao;
-    
+
     private String descricao;
-    private String imagemUrl; 
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private String imagemUrl;
 
     public String getNome() {
         return nome;
