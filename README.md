@@ -17,3 +17,4 @@
 2. Entre no terminal e navegue até o diretório da aplicação
 3. Execute ```mvn clean install```
 4. Execute ```java -jar target/sistematizacao-0.0.1-SNAPSHOT.jar```
+5. Para acessar a documentação da API (Swagger), navegue até o endereço ```http://localhost:8080/swagger-ui/index.html```
