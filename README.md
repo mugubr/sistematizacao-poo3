@@ -5,7 +5,8 @@
 - Daphine Lucas do Vale 
 - Nadine Emily Velasques Corrales
 - Luiz de Oliveira Saraiva 
-- Ricardo Rodrigues da Silva Sousa 
+- Ricardo Rodrigues da Silva Sousa
+- Geisiane Schulz 
 
 ## Pré-requisitos
 - Apache Maven 3.9.9
